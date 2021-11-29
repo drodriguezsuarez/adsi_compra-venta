@@ -1,6 +1,9 @@
 import express from 'express'
 import cors from 'cors';
 import { dbConnection } from '../database/config.js';
+import categoria  from '../routes/categoria.js';
+import usuario from '../routes/usuario.js';
+import articulo from '../routes/articulo.js';
 
 class server{
     constructor(){
@@ -16,7 +19,9 @@ class server{
     }
 
     routes(){
-
+        this.app.use('/api/categoria',  categoria)
+        this.app.use('/api/usuario',  usuario)
+        this.app.use('/api/articulo',  articulo)
     }
 
     async conectarBD(){
